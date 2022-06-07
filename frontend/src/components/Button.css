@@ -1,0 +1,44 @@
+
+.button{
+    height: 40px;
+}
+.button__primary{
+    background-color: #6cb41b !important;
+    color: white;
+    font-weight: 700;
+    border: 1px solid #6cb41b;
+}
+.button__primary:hover{
+    background-color: #55a50b !important;
+    border: 1px solid #55a50b !important;
+    color: white;
+}
+.button__secondary{
+    background-color: #ff6b6b !important;
+    color: white;
+    font-weight: 700;
+    border: 1px solid #ff6b6b;
+}
+.button__secondary:hover{
+    background-color: #f74848 !important;
+    border: 1px solid #f74848 !important;
+    color: white;
+}
+.button__tertiary{
+    border: 1px solid #6cb41b;
+    color: #6cb41b;
+    
+}
+.button__tertiary:hover{
+    border: 1px solid #55a50b;
+    color: #55a50b;
+    background-color:#f6faf2;
+}
+.button__quaternary{
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+}
+.button__quaternary:hover{
+    border: 1px solid #f74848;
+    color: #f74848;
+}
