@@ -175,7 +175,6 @@ import * as actionTypes from "../constants/ActionTypes";
           loading: false
         };
       case VOTE_DISCUSSION_SUCCESS:
-        debugger
         return {
           ...state,
           discussions: state.discussions.map((discussion) =>

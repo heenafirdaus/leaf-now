@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieSession = require("cookie-session");
+const path = require('path');
 
 
 const productRoutes = require("./routes/productRoutes");
@@ -32,14 +33,16 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.json({ message: "API running..." });
-});
+app.use(express.static(path.resolve(__dirname, "../frontend/build")));
 
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/discussions", discussionRoutes);
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
