@@ -61,6 +61,13 @@ const SideDrawer = ({ show, click, location }) => {
             <Link onClick={handleLogout}>Logout</Link>
           </li>
         )}
+        <li>
+          <Link to="/my-account">
+            <span>
+              My Account{" "}
+            </span>
+          </Link>
+        </li>
       </ul>
     </div>
   );

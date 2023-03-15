@@ -117,7 +117,7 @@ const Navbar = ({ click, location, match }) => {
               <Button type="secondary" onClick={handleLogout} label="Logout" />
             </li>
             <li>
-              <Link to="/" className="user__avatar">
+              <Link to="/my-account" className="user__avatar">
                 <i className="fas fa-solid fa-user"></i>
               </Link>
             </li>
