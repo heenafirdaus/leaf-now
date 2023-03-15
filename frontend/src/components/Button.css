@@ -42,3 +42,7 @@
     border: 1px solid #f74848;
     color: #f74848;
 }
+
+.button__disabled{
+    border: 1px solid #121212;
+}

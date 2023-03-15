@@ -12,3 +12,6 @@
 .header{
     border-bottom: 1px solid #f7f7f7;
 }
+.hidden{
+    display: none;
+}

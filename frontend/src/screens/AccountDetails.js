@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { getCurrentUser, updateUser } from "../redux/actions/userActions";
+import './AccountDetails.css';
 
 const AccountDetails = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const AccountDetails = () => {
   return (
     <div className="account__details">
       <div className="form__container">
-        <h4 className="header">Add details below</h4>
+        <h4 className="header">Account details</h4>
         <form className="mt-4">
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -39,7 +40,8 @@ const AccountDetails = () => {
               name="email"
               rows="2"
               value={state.email || user.email}
-              onChange={handleChange}
+              // onChange={handleChange}
+              disabled
             />
           </div>
           <div className="form-group">
@@ -51,7 +53,8 @@ const AccountDetails = () => {
               name="name"
               rows="2"
               value={state.name || user.name}
-              onChange={handleChange}
+              // onChange={handleChange}/
+              disabled
             />
           </div>
           <div className="form-group">
@@ -63,7 +66,8 @@ const AccountDetails = () => {
               name="address"
               rows="3"
               value={state.address || user.address}
-              onChange={handleChange}
+              // onChange={handleChange}
+              disabled
             />
           </div>
           <div class="form-group form-check">
@@ -72,15 +76,17 @@ const AccountDetails = () => {
               class="form-check-input"
               id="isSellerOrDonor"
               value={state.isSellerOrDonor || user.isSellerOrDonor}
+              disabled
             />
             <label class="form-check-label" for="isSellerOrDonor">
               Do you want to sell or donate ?
             </label>
           </div>
           <Button
-            type="primary"
+            disabled
+            type="disabled"
             label="Publish"
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
           />
         </form>
       </div>
