@@ -9,8 +9,10 @@ const USER_INITIAL_STATE = {
 
 export const authReducers = (state = USER_INITIAL_STATE, action) => {
   switch (action.type) {
-    case actionTypes.USER_LOGIN_REQUEST:
-      return { ...state };
+    case actionTypes.USER_LOGIN_REQUEST:{
+      console.log("boo")
+      return { ...state, loading: true };
+    }
 
     case actionTypes.USER_LOGIN_SUCCESS:
       return {
@@ -28,7 +30,7 @@ export const authReducers = (state = USER_INITIAL_STATE, action) => {
       };
 
     case actionTypes.USER_SIGNUP_REQUEST:
-      return { ...state };
+      return { ...state, loading: true };
 
     case actionTypes.USER_SIGNUP_SUCCESS:
       return {
@@ -46,7 +48,7 @@ export const authReducers = (state = USER_INITIAL_STATE, action) => {
       };
 
     case actionTypes.USER_LOGOUT_REQUEST:
-      return { ...state };
+      return { ...state, loading: true };
 
     case actionTypes.USER_LOGOUT_SUCCESS:
       return {

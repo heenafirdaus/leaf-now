@@ -5,7 +5,9 @@ import { getCurrentUser } from "./userActions";
 
 export const userLogin = (user) => async (dispatch) => {
     try {
+      console.log("there")
       dispatch({ type: actionTypes.USER_LOGIN_REQUEST });
+      console.log("here")
   
       const { data } = await axios.post("/api/auth/login-user", user);
   
@@ -16,6 +18,9 @@ export const userLogin = (user) => async (dispatch) => {
       getCurrentUser();
       setStorage('leafNowUser', {isLoggedIn: true, userId:data.userId, authToken: data.token, isSellerOrDonor: data.isSellerOrDonor, name: data.name});
     } catch (error) {
+      console.log("af err", error.response && error.response.data.message
+      ? error.response.data.message
+      : error.message   )
       dispatch({
         type: actionTypes.USER_LOGIN_FAIL,
         payload:
@@ -40,6 +45,7 @@ export const userLogin = (user) => async (dispatch) => {
       
 
     }catch(error){
+      console.log("af err", error   )
       dispatch({
         type: actionTypes.USER_LOGOUT_FAIL,
         payload:

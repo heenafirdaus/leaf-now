@@ -5,7 +5,7 @@ const JWT = require("jsonwebtoken");
 const registerUser = async (req, res) => {
   try {
     const { name, email, password, verifyPassword, isSellerOrDonor = false } = req.body;
-
+    //validation
     if (!name || !email || !password || !verifyPassword) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -17,11 +17,13 @@ const registerUser = async (req, res) => {
     if (password !== verifyPassword) {
       return res.status(400).json({ message: "Passwords must match" });
     }
+
+    //does user already exists
     const user = await User.findOne({ email: email });
     if (user) {
       return res.status(400).json({ message: "User already exists!" });
     }
-
+    //encrypt password
     const salt = await Bcrypt.genSalt(15);
     const hashedPassword = await Bcrypt.hash(password, salt);
     
@@ -32,6 +34,7 @@ const registerUser = async (req, res) => {
       isSellerOrDonor: isSellerOrDonor,
     });
     const savedUser = await newUser.save();
+    //generating token
     const token = JWT.sign({ id: savedUser._id }, process.env.JWT_SECRET);
     
     req.session.token = token;
@@ -59,13 +62,14 @@ const loginUser = async (req, res) => {
         message: "All fields are required",
       });
     }
-
+    //user exists?
     const user = await User.findOne({ email: email });
     if (!user) {
       return res.status(404).json({
         message: "User doesn't exist",
       });
     }
+    //password hash --> hashed password compare with password hash in db
     const isPasswordCorrect = await Bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
       return res.status(400).json({ message: "Invalid password" });

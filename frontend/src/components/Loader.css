@@ -1,0 +1,13 @@
+.loader__container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    border: 1px solid blue;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader__container img{
+    width: 100px;
+    height: 100px;
+}

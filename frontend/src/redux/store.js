@@ -36,12 +36,12 @@ const INITIAL_STATE = {
   },
   auth: {
     user: {
-      token: data.authToken,
-      userId: data.userId,
-      isSellerOrDonor: data.isSellerOrDonor,
-      name:data.name
+      token: data.authToken || null,
+      userId: data.userId || null,
+      isSellerOrDonor: data.isSellerOrDonor || false,
+      name:data.name || null,
     },
-    isLoggedIn: data.isLoggedIn,
+    isLoggedIn: data.isLoggedIn || false,
   },
 };
 

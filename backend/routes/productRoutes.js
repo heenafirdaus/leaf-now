@@ -11,8 +11,8 @@ const {
 } = require("../controller/productControllers");
 const { verifyToken, isSellerOrDonor, isSellerOrDonorAuthorized } = require('../middleware/jwtAuth');
 
-router.get("/",  getProducts);
-router.get("/:id", getProductById);
+router.get("/",  getProducts); //all products
+router.get("/:id", getProductById); //individual product
 router.post('/upload',verifyToken, isSellerOrDonor,  fromidable(), uploadProduct);
 router.delete('/:productId',verifyToken, isSellerOrDonor, isSellerOrDonorAuthorized, deleteProduct);
 router.put('/:productId', verifyToken, isSellerOrDonor, isSellerOrDonorAuthorized, fromidable(), updateProduct);

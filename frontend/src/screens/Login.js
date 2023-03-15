@@ -11,6 +11,7 @@ import Button from '../components/Button';
 // Actions
 import { userLogin } from '../redux/actions/authActions';
 import { getStorage } from "../utils/storage";
+import Loader from '../components/Loader'
 
 //validator
 import {validateLoginInput} from '../utils/validator';
@@ -57,7 +58,10 @@ const Login = ({location}) => {
   const handleChange = (e) => {
     setState(state =>({...state, [e.target.name]: e.target.value}));
   }
-  console.log(errors)
+  console.log("authDetails",authDetails)
+  if(authDetails.loading){
+    return <Loader/>;
+  }
   return (
     <div className="loginscreen">
       <div className="loginscreen__formcontainer">
@@ -97,6 +101,7 @@ const Login = ({location}) => {
               onChange={handleChange}
             />
             {errors['password'] && <small className="text text-danger">{errors['password']}</small>}
+            {authDetails?.error && <small className="text text-danger">{authDetails?.error}</small>}
           </div>
           <Button label="Login" type="primary" onClick={handleLogin}/>
         </form>
