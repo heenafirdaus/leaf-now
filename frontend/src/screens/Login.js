@@ -58,7 +58,7 @@ const Login = ({location}) => {
   const handleChange = (e) => {
     setState(state =>({...state, [e.target.name]: e.target.value}));
   }
-  console.log("authDetails",authDetails)
+  
   if(authDetails.loading){
     return <Loader/>;
   }

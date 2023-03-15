@@ -23,9 +23,8 @@ const AccountDetails = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
   }
-  console.log('asaaaa',state);
+
   return (
     <div className="account__details">
       <div className="form__container">

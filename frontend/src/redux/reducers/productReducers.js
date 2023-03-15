@@ -26,6 +26,7 @@ export const getProductDetailsReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case actionTypes.GET_PRODUCT_DETAILS_REQUEST:
       return {
+        ...state,
         loading: true,
       };
     case actionTypes.GET_PRODUCT_DETAILS_SUCCESS:
@@ -36,7 +37,7 @@ export const getProductDetailsReducer = (state = { product: {} }, action) => {
     case actionTypes.GET_PRODUCT_DETAILS_FAIL:
       return {
         loading: false,
-        error: {...state.error, ...action.payload},
+        error: action.payload,
       };
     case actionTypes.GET_PRODUCT_DETAILS_RESET:
       return {
@@ -61,7 +62,7 @@ export const uploadProductDetailsReducer = (state={}, action) => {
     case actionTypes.GET_PRODUCT_DETAILS_FAIL:
       return {
         loading: false,
-        error: {...state.error, ...action.payload},
+        error: action.payload,
       };
     default:
       return state;

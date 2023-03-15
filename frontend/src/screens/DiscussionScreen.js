@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Discussion from '../components/Discussion';
+import Loader from '../components/Loader';
 
 //Actions
 import { getAllDiscussions } from "../redux/actions/discussionActions";
@@ -12,7 +13,9 @@ const DiscussionScreen = () => {
     useEffect(() => {
         dispatch(getAllDiscussions());
       }, [dispatch]);
-console.log(discussions)
+    if(loading){
+        return <Loader/>
+    }
     return (
         discussions.map(
             discussion => (

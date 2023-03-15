@@ -49,7 +49,7 @@ function App() {
           <ProtectedRoute exact path="/add-post" component={AddPostScreen}/>
           <ProtectedRoute exact path="/cart" component={CartScreen} />
           <ProtectedRoute exact path="/sell-donate" component={UploadProductScreen} />
-          {/* <ProtectedRoute exact path="/my-account" component={AccountDetails} /> */}
+          <ProtectedRoute exact path="/my-account" component={AccountDetails} />
           <Route component={NotFound} />
         </Switch>
       </main>

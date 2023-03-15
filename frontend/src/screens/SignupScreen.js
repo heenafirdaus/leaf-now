@@ -12,6 +12,7 @@ import Button from "../components/Button";
 import { userSignup } from "../redux/actions/authActions";
 import { getStorage } from "../utils/storage";
 import { validateRegisterInput } from "../utils/validator";
+import Loader from "../components/Loader";
 
 const SignupScreen = ({ location }) => {
   const [state, setState] = useState({
@@ -67,7 +68,10 @@ const SignupScreen = ({ location }) => {
       }
     
   };
-
+  console.log("authDetails...", authDetails)
+if(authDetails.loading){
+  return <Loader/>
+}
   return (
     <div className="loginscreen">
       <div className="loginscreen__formcontainer">
@@ -145,6 +149,9 @@ const SignupScreen = ({ location }) => {
             <label className="form-check-label" htmlFor="isSellerOrDonor">
               I want to signup as seller or donor
             </label>
+            <p>
+              {authDetails?.error && <small className="text text-danger">{authDetails?.error}</small>}
+            </p>
           </div>
           <Button
             label="Create account"

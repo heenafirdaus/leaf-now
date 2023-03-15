@@ -130,13 +130,14 @@ import * as actionTypes from "../constants/ActionTypes";
     VOTE_DISCUSSION_SUCCESS,
     ADD_COMMENT_SUCCESS,
     DELETE_COMMENT_SUCCESS,
+    GET_DISCUSSION_POST_FAIL
   } from '../constants/ActionTypes';
   
   const initialState = {
     discussions: [],
     discussion: {},
     loading: true,
-    error: {}
+    error: ''
   };
   
   function discussionReducers(state = initialState, action) {
@@ -148,31 +149,36 @@ import * as actionTypes from "../constants/ActionTypes";
         return {
           ...state,
           discussions: payload,
-          loading: false
+          loading: false,
+          error: ''
         };
       case GET_DISCUSSION_POST_SUCCESS:
         return {
           ...state,
           discussion: payload,
-          loading: false
+          loading: false,
+          error: ''
         };
       case ADD_DISCUSSION_SUCCESS:
         return {
           ...state,
           discussions: [payload, ...state.discussions],
-          loading: false
+          loading: false,
+          error: ''
         };
       case DELETE_DISCUSSION_SUCCESS:
         return {
           ...state,
           discussions: state.discussions.filter((discussion) => discussion._id !== payload),
-          loading: false
+          loading: false,
+          error: ''
         };
+      case GET_DISCUSSION_POST_FAIL:
       case GET_DISCUSSIONS_FAIL:
         return {
           ...state,
           error: payload,
-          loading: false
+          loading: false,
         };
       case VOTE_DISCUSSION_SUCCESS:
         return {

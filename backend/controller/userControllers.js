@@ -114,7 +114,7 @@ const updateUser = async (req, res) => {
       }
 
        user = await User.findByIdAndUpdate(req.session.userId,updatedUser,{new: true});
-       console.log(user)
+      
       return res.status(201).json({
         message: "Registered successfully",
         name: user.name,

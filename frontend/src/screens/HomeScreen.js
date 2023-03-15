@@ -8,6 +8,7 @@ import Product from "../components/Product";
 
 //Actions
 import { getProducts as listProducts } from "../redux/actions/productActions";
+import Loader from '../components/Loader';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -19,12 +20,14 @@ const HomeScreen = () => {
     dispatch(listProducts());
   }, [dispatch]);
 
+  if(loading){
+    return <Loader/>;
+  }
+
   return (
     <div className="homescreen">
       <div className="homescreen__products">
-        {loading ? (
-          <h2>Loading...</h2>
-        ) : error ? (
+        { error ? (
           <h2>{error}</h2>
         ) : (
           products && products.map((product) => (

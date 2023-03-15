@@ -16,3 +16,6 @@
 .loginscreen_form_header{
     color: rgba(0,0,0,0.8);
 }
+.form-check-label{
+    margin-bottom: 5px;
+}

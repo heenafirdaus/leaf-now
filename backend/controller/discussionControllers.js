@@ -68,7 +68,7 @@ const upvoteDiscussion = async (req, res) => {
   }
 }
 const downvoteDiscussion = async (req, res) => {
-  console.log(req.params)
+
   try {
     const post = await Discussion.findById(req.params.discussionId);
 

@@ -13,6 +13,7 @@ import "./Post.css";
 import Comment from "./Comment";
 import { validateCommentInput } from "../utils/validator";
 import { getCurrentUser } from "../redux/actions/userActions";
+import Loader from "./Loader";
 
 const Post = ({ match }) => {
   const dispatch = useDispatch();
@@ -67,7 +68,12 @@ const Post = ({ match }) => {
   const handleDownvote = () =>{
     dispatch(downvotePost(discussion._id));
   }
-
+  if(loading){
+    return <Loader/>
+  }
+  if(error){
+    return <h2>{error}</h2>
+  }
   return (
     <div className="post__screen">
       <div className="d-flex header">

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 // Actions
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
+import Loader from '../components/Loader';
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
@@ -25,11 +26,12 @@ const ProductScreen = ({ match, history }) => {
     history.push(`/cart`);
   };
 
+  if(loading){
+    return <Loader/>;
+  }
   return (
     <div className="productscreen">
-      {loading ? (
-        <h2>Loading...</h2>
-      ) : error ? (
+      {error ? (
         <h2>{error}</h2>
       ) : (
         <>
