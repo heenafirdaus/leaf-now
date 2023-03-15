@@ -57,7 +57,7 @@ const AccountDetails = () => {
               disabled
             />
           </div>
-          <div className="form-group">
+          <div className="form-group hidden">
             <label htmlFor="address">Address</label>
             <textarea
               type="text"
@@ -70,7 +70,7 @@ const AccountDetails = () => {
               disabled
             />
           </div>
-          <div class="form-group form-check">
+          <div class="form-group form-check hidden">
             <input
               type="checkbox"
               class="form-check-input"
@@ -82,12 +82,14 @@ const AccountDetails = () => {
               Do you want to sell or donate ?
             </label>
           </div>
-          <Button
-            disabled
-            type="disabled"
-            label="Publish"
-            // onClick={handleSubmit}
-          />
+          <div className="hidden">
+            <Button
+              disabled
+              type="disabled"
+              label="Publish"
+              // onClick={handleSubmit}
+            />
+          </div>
         </form>
       </div>
     </div>
