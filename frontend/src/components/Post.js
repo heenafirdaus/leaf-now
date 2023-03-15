@@ -71,9 +71,6 @@ const Post = ({ match }) => {
   if(loading){
     return <Loader/>
   }
-  if(error){
-    return <h2>{error}</h2>
-  }
   return (
     <div className="post__screen">
       <div className="d-flex header">
@@ -130,6 +127,9 @@ const Post = ({ match }) => {
               ></textarea>
               {errors["comment"] && (
                 <small className="text text-danger">{errors["comment"]}</small>
+              )}
+              {error && (
+                <small className="text text-danger">{error}</small>
               )}
             </div>
             <Button

@@ -130,7 +130,8 @@ import * as actionTypes from "../constants/ActionTypes";
     VOTE_DISCUSSION_SUCCESS,
     ADD_COMMENT_SUCCESS,
     DELETE_COMMENT_SUCCESS,
-    GET_DISCUSSION_POST_FAIL
+    GET_DISCUSSION_POST_FAIL,
+    ADD_COMMENT_FAIL
   } from '../constants/ActionTypes';
   
   const initialState = {
@@ -173,6 +174,7 @@ import * as actionTypes from "../constants/ActionTypes";
           loading: false,
           error: ''
         };
+      case ADD_COMMENT_FAIL:
       case GET_DISCUSSION_POST_FAIL:
       case GET_DISCUSSIONS_FAIL:
         return {
