@@ -27,7 +27,7 @@ export const userReducers = (state = USER_INITIAL_STATE, action) => {
         error: {...state.error, ...action.payload},
       };
     case actionTypes.GET_CURRENT_USER_DATA_REQUEST:
-      return { ...state };
+      return { ...state, loading: true, };
 
     case actionTypes.GET_CURRENT_USER_DATA_SUCCESS:
       return {
@@ -42,10 +42,11 @@ export const userReducers = (state = USER_INITIAL_STATE, action) => {
         ...state,
         loading: false,
         error: {...state.error, ...action.payload},
+        isLoggedIn: false,
       };
 
     default:
-      return { ...state };
+      return state;
   }
 };
 

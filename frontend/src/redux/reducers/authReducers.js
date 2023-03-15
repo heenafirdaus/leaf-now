@@ -27,6 +27,7 @@ export const authReducers = (state = USER_INITIAL_STATE, action) => {
         ...state,
         loading: false,
         error: action.payload,
+        isLoggedIn: false,
       };
 
     case actionTypes.USER_SIGNUP_REQUEST:
